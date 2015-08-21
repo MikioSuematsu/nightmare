@@ -616,6 +616,17 @@ describe('Nightmare', function () {
         .run(done);
     });
 
+    it('should scale the window contents and clipping rectangle', function(done) {
+      new Nightmare()
+          .viewport(1600, 900)
+          .goto(fixture('options'))
+          .wait()
+          .clipRect(0, 0, 1600, 900)
+          .screenshot('/tmp/nightmare/testScaleDefault_clipRect.png')
+          .run(done);
+    });
+
+
     it('should set headers', function (done) {
       new Nightmare()
         .headers({ 'X-Nightmare-Header': 'hello world' })
